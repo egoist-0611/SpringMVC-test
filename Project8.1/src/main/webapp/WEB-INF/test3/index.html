@@ -5,6 +5,17 @@
     <title>Title</title>
 </head>
 <body>
-<a th:href="@{/servletAPI?username='July'&password=123}">测试</a>
+<!--<a th:href="@{/servletAPI?username='July'&password=123}">测试</a>-->
+<!--<a th:href="@{/paramTest?username='July'&password=123}">测试2</a>-->
+<!--<a th:href="@{/requestParam?userName='July'&password=123}">测试2</a>-->
+<!--<a th:href="@{/requestHeader?userName='July'&password=123}">测试1</a>-->
+<!--<a th:href="@{/cookieValue?userName='July'&password=123}">1</a>-->
+<!--<a th:href="@{/pojoTest?username='July'&password=123}">11</a>-->
+<a th:href="@{/encodingTest?username='小白'&age=23}">编码测试GET</a>
+<form th:action="@{/encodingTest}" method="post">
+    <input type="hidden" name="username" value="小白">
+    <input type="hidden" name="age" value="23">
+    <input type="submit" value="编码测试POST">
+</form>
 </body>
 </html>

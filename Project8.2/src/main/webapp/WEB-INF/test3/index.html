@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/user}">getAllUsers</a>
+<a th:href="@{/user/1}">getUserById</a>
+<form th:action="@{/user}" method="post">
+    <input type="text" name="username">
+    <input type="text" name="age">
+    <input type="submit" value="addUser">
+</form>
+<br>
+<form th:action="@{/user/1}" method="POST">
+    <input type="hidden" name="_method" value="put">
+    <input type="text" name="username">
+    <input type="text" name="age">
+    <input type="submit" value="updateUser">
+</form>
+</body>
+</html>

@@ -11,11 +11,13 @@
     <modules>
         <module>Project8.1</module>
         <module>Project8.2</module>
+        <module>Project8.3</module>
+        <module>Project8.4</module>
     </modules>
 
     <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
     <dependencies>

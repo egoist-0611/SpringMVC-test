@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" th:src="@{/static/vue.js}"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            var vue = new Vue({
+                el: "table",
+                methods: {
+                    deleteMethod: function () {
+                        var form = document.getElementById("deleteEmployee");
+                        form.action = event.target.href;
+                        form.submit();
+                        event.preventDefault();
+                    }
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+<table style="text-align: center;border: 2px solid black;">
+    <tr>
+        <td colspan="6">员工信息</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>姓名</td>
+        <td>性别</td>
+        <td>年龄</td>
+        <td>电话</td>
+        <td colspan="2">
+            操作(<a th:href="@{/addEmployee}">新增</a>)
+        </td>
+    </tr>
+    <tr th:if="${employees}!=null" th:each="employee : ${employees}">
+        <td th:text="${employee.id}"></td>
+        <td th:text="${employee.name}"></td>
+        <td th:text="${employee.gender}"></td>
+        <td th:text="${employee.age}"></td>
+        <td th:text="${employee.phone}"></td>
+        <td><a @click="deleteMethod" th:href="@{|/employee/${employee.id}|}">删除</a></td>
+        <td><a th:href="@{|/employee/${employee.id}|}">修改</a></td>
+    </tr>
+</table>
+<form action="" method="post" id="deleteEmployee">
+    <input type="hidden" name="_method" value="delete">
+</form>
+</body>
+</html>

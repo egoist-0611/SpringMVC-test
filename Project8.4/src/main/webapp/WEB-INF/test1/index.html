@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>首页</h1>
+<!--<form th:action="@{/requestBody}" method="post">-->
+<!--    <input type="text" name="name">-->
+<!--    <input type="text" name="age">-->
+<!--    <input type="submit" value="requestBody">-->
+<!--</form>-->
+<!--<form th:action="@{/requestEntity}" method="post">-->
+<!--    <input type="text" name="name">-->
+<!--    <input type="text" name="age">-->
+<!--    <input type="submit" value="requestEntity">-->
+<!--</form>-->
+<!--<a th:href="@{/responseBody}">responseBody</a>-->
+<!--<a th:href="@{/responseObj}">responseObj</a>-->
+<a @click="axiosTest" th:href="@{/responseAxios}">responseAxios</a>
+<script type="text/javascript" th:src="@{/static/vue.js}"></script>
+<script type="text/javascript" th:src="@{/static/axios.min.js}"></script>
+<script type="text/javascript">
+    var vue = new Vue({
+        el: "a",
+        methods: {
+            axiosTest: function (event) {
+                axios({
+                    method: "POST",
+                    url: event.target.href,
+                    params: {
+                        id: 1001,
+                        name: "June",
+                        age: 19
+                    }
+                }).then(function (value) {
+                    var user = value.data;
+                    alert(user.id + "_" + user.name + "_" + user.age);
+                });
+                event.preventDefault();
+            }
+        }
+    });
+</script>
+</body>
+</html>

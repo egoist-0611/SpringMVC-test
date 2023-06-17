@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Index</h1>
+<a th:href="@{/fileDown}">fileDown</a>
+<form th:action="@{/fileUp}" method="post" enctype="multipart/form-data">
+    <input type="file" name="picture">
+    <input type="submit" value="fileUp">
+</form>
+</body>
+</html>

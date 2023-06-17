@@ -1,0 +1,17 @@
+CREATE DATABASE IF NOT EXISTS restful CHARACTER SET 'utf8';
+
+USE restful;
+
+CREATE TABLE employee(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(20) NOT NULL,
+    gender ENUM('男','女'),
+    age INT UNSIGNED,
+    phone CHAR(11)
+);
+
+INSERT INTO employee(name,gender,age,phone) VALUES
+('小张','男',10,'13812345678'),
+('小美','女',16,'18921213303'),
+('小龙','男',14,'19020102031'),
+('小连','女',19,'12312345678');
